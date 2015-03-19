@@ -1,0 +1,21 @@
+.pms-galeria img {
+    display: none;
+    box-shadow:0px 3px 4px #dcdcdc;
+    border-radius: 6px;
+    /* 
+    * Change this to try different borders
+    */
+    border:1px solid #ccc;
+}
+
+ .pms-galeria {
+    /* 
+     * Change this to set the spacing of the images in the grid
+     */
+    padding:10px;
+  }
+
+
+.Caption_Content {
+	color: white;
+}
