@@ -151,4 +151,11 @@ function pms_galeria_enqueues()
 }
 add_action('wp_enqueue_scripts', 'pms_galeria_enqueues', 100);
 
+require 'plugin-update-checker/plugin-update-checker.php';
+$repoInfo = PucFactory::getLatestClassVersion('PucGitHubChecker');
+$myUpdateChecker = new $repoInfo(
+    'https://github.com/baltazzar/baltazzar-attachments/',
+    __FILE__,
+    'master'
+);
 ?>
