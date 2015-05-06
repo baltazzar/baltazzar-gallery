@@ -58,7 +58,8 @@ function galeria_posttype() {
 remove_shortcode('gallery');
 add_shortcode('gallery', 'parse_gallery_shortcode');
 function parse_gallery_shortcode($atts) {
- 
+    $context = Timber::get_context();
+
     global $post;
  
     if ( ! empty( $atts['ids'] ) ) {
@@ -97,7 +98,6 @@ function parse_gallery_shortcode($atts) {
  
     $images = get_posts($args);
     
-    echo '<div class="pms-galeria" itemscope itemtype="http://schema.org/ImageGallery">';
     foreach ( $images as $image ) {     
         $caption = $image->post_excerpt;
  
@@ -109,16 +109,20 @@ function parse_gallery_shortcode($atts) {
  		$image_attributes_medium = wp_get_attachment_image_src($image->ID, $size);
  		// render your gallery here 
 
-        echo '<a href="'. $image->guid . '" itemprop="contentUrl" data-size="' . $image_attributes_full[1] . 'x' . $image_attributes_full[2] .'" class="Image_Wrapper" data-caption="' . $caption . '">';
-        //echo  wp_get_attachment_image($image->ID, $size);
-		echo  '<img src="' . $image_attributes_medium[0] . '" width="' . $image_attributes_medium[1]  . '" height="' . $image_attributes_medium[2]  . '">';
-		echo '<span itemprop="caption description" style="display: none;">' . $caption . '</span>';
-        
-        echo '</a>';
+        $image_attrs[] = array(
+            'full_url' => $image_attributes_full[0], 
+            'full_width' => $image_attributes_full[1], 
+            'full_height' =>  $image_attributes_full[2], 
+            'caption' => $caption, 
+            'medium_url' => $image_attributes_medium[0], 
+            'medium_width' => $image_attributes_medium[1], 
+            'medium_height' => $image_attributes_medium[2]
+        );
     }
-	echo '</div>';
 
-    include(PMS_GALERIA_PATH . 'init.php');
+    $context['images'] = $image_attrs;
+    $context['PMS_GALERIA_BASE_URL'] = PMS_GALERIA_BASE_URL;
+    return Timber::compile('templates/galeria.twig', $context);
 }
 
 add_action('wp_enqueue_scripts', 'pms_galeria_enqueues', 100);
