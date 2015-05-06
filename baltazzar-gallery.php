@@ -3,7 +3,7 @@
 Plugin Name: BaltazZar Gallery
 Description: Adiciona galeria de imagens ao site.
 Author: Thiago Ribeiro, Renato Mestre, Leonardo Góes
-Version: 1.0.0
+Version: 1.0.1
 Author URI: http://github.com/baltazzar
 */
 define('PMS_GALERIA_PATH',  plugin_dir_path( __FILE__ ));
