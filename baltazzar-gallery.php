@@ -3,7 +3,7 @@
 Plugin Name: BaltazZar Gallery
 Description: Adiciona galeria de imagens ao site.
 Author: Thiago Ribeiro, Renato Mestre, Leonardo Góes
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://github.com/baltazzar
 */
 define('PMS_GALERIA_PATH',  plugin_dir_path( __FILE__ ));
@@ -22,7 +22,7 @@ $myUpdateChecker = new $repoInfo(
 
 
 function my_plugin_init() {
-    if (!is_plugin_active('timber/timber.php')) {
+    if (!is_plugin_active('timber-library/timber.php')) {
         function my_admin_error_notice() {
             $class = "update-nag";
             $message = "A galeria precisa do plugin <a href=\"https://wordpress.org/plugins/timber-library/\">Timber</a> para funcionar adequadamente!";
