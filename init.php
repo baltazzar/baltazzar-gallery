@@ -1,7 +1,7 @@
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/jquery.js';?>></script>
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/jquery.collagePlus.min.js';?>></script>
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/jquery.removeWhitespace.min.js';?>></script>
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/jquery.collageCaption.min.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/jquery.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/jquery.collagePlus.min.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/jquery.removeWhitespace.min.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/jquery.collageCaption.min.js';?>></script>
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -300,5 +300,5 @@
 
 </script>
 
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/photoswipe.min.js';?>></script>
-<script src=<?php echo PMS_GALERIA_BASE_URL . '/js/photoswipe-ui-default.min.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/photoswipe.min.js';?>></script>
+<script src=<?php echo BTZ_GALLERY_BASE_URL . '/js/photoswipe-ui-default.min.js';?>></script>

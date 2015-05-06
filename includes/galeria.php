@@ -121,23 +121,23 @@ function parse_gallery_shortcode($atts) {
     }
 
     $context['images'] = $image_attrs;
-    $context['PMS_GALERIA_BASE_URL'] = PMS_GALERIA_BASE_URL;
+    $context['BTZ_GALLERY_BASE_URL'] = BTZ_GALLERY_BASE_URL;
     return Timber::compile('templates/galeria.twig', $context);
 }
 
-add_action('wp_enqueue_scripts', 'pms_galeria_enqueues', 100);
-function pms_galeria_enqueues()
+add_action('wp_enqueue_scripts', 'btz_gallery_enqueues', 100);
+function btz_gallery_enqueues()
 {
-    wp_register_style('photoswipe-css', PMS_GALERIA_BASE_URL . '/css/photoswipe.css', false, null);
+    wp_register_style('photoswipe-css', BTZ_GALLERY_BASE_URL . '/css/photoswipe.css', false, null);
     wp_enqueue_style('photoswipe-css');
 
-    wp_register_style('photoswipe-ui-css', PMS_GALERIA_BASE_URL . '/css/default-skin/default-skin.css', false, null);
+    wp_register_style('photoswipe-ui-css', BTZ_GALLERY_BASE_URL . '/css/default-skin/default-skin.css', false, null);
     wp_enqueue_style('photoswipe-ui-css');
 
-    wp_register_style('galeria-css', PMS_GALERIA_BASE_URL . '/css/main.css', false, null);
+    wp_register_style('galeria-css', BTZ_GALLERY_BASE_URL . '/css/main.css', false, null);
     wp_enqueue_style('galeria-css');
 
-    wp_register_style('collage-plus-css', PMS_GALERIA_BASE_URL . '/css/collagePlus.css', false, null);
+    wp_register_style('collage-plus-css', BTZ_GALLERY_BASE_URL . '/css/collagePlus.css', false, null);
     wp_enqueue_style('collage-plus-css');
 }
 
