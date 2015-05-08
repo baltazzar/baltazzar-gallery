@@ -164,19 +164,18 @@ function myplugin_save_meta_box_data( $post_id ) {
             return;
         }
 
+        // Set the featured image with the first image of the gallery
+        $input_line = $_POST['content'];
+        $input_line = str_replace('"', ',', $input_line);
+        preg_match('/.*gallery\sids=..(\d*).*/i', $input_line, $output_array);
+        update_post_meta( $post_id, '_thumbnail_id',  $output_array[1] );
+
     } else {
 
         if ( ! current_user_can( 'edit_post', $post_id ) ) {
             return;
         }
     }
-
-    // Update the meta field in the database.
-    $input_line = $_POST['content'];
-    // $thumbnail_id = preg_replace('/.*\\[gallery ids=.(.*)/i', "$1", $input_lines);
-    $input_line = str_replace('"', ',', $input_line);
-    preg_match('/.*gallery\sids=..(\d*).*/i', $input_line, $output_array);
-    update_post_meta( $post_id, '_thumbnail_id',  $output_array[1] );
 }
 
 ?>
